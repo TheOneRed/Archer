@@ -1,19 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-[System.Serializable]
+[System.Serializable] //makes these instances visable in the inspector
 public class Speed
 {
     public float minSpeed, maxSpeed;
 }
 
-[System.Serializable]
+[System.Serializable] // ^^
 public class Move
 {
     public float minMove, maxMove;
 }
 
-[System.Serializable]
+[System.Serializable] // ^^
 public class Boundary
 {
     public float xMin, xMax, yMin, yMax;
@@ -26,10 +26,11 @@ public class EnemyController : MonoBehaviour
     public Speed speed;
     public Move move;
     public Boundary boundary;
-
+    
     // PRIVATE INSTANCE VARIABLES
     private float _CurrentSpeed;
     private float _CurrentMove;
+    private GameController gameController;
 
     // Use this for initialization
     void Start()
@@ -48,7 +49,7 @@ public class EnemyController : MonoBehaviour
         //Makes ninjas rebound off top
         if (currentPosition.y >= boundary.yMax)
         {
-            this._CurrentSpeed = this._CurrentSpeed * -1;
+            this._CurrentSpeed = this._CurrentSpeed * -1; 
         }
 
         //Makes ninjas rebound off bottom
@@ -64,10 +65,20 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-  
+    // Makes the effect of never ending ninjas
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Arrow")
+        {
+            this.Reset();   
+        }
+       
+    }
 
-// resets the gameObject
-public void Reset()
+
+
+// resets ninjas that go off screen
+    public void Reset()
     {
         this._CurrentMove = Random.Range(move.minMove, move.maxMove);
         this._CurrentSpeed = Random.Range(speed.minSpeed, speed.maxSpeed);

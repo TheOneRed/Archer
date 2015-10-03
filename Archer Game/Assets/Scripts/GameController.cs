@@ -7,12 +7,13 @@ public class GameController : MonoBehaviour {
     // PUBLIC INSTANCE VARIABLES
     public int ninjaCounter;
     public GameObject ninja;
-
-    //Public Instancces for Scoreboard
     public Text scoreText;
     public Text livesText;
-    public int scoreStart = 0;
-    public int livesStart = 5;
+    public int scoreValue = 0;
+    public int livesValue = 5;
+
+    // Private Instances
+    private PlayerController playerController;
 
     // Use this for initialization
     void Start()
@@ -39,29 +40,29 @@ public class GameController : MonoBehaviour {
 
     public void LoseLife(int newLifeValue)
     {
-        livesStart -= newLifeValue;
+        livesValue -= newLifeValue;
         UpdateLives();
     }
 
     public void UpdateLives()
     {
-        livesText.text = "Lives: " + livesStart;
+        livesText.text = "Lives: " + livesValue;
 
-        if (livesStart <= 0)
+        if (livesValue == 0)
         {
-            Destroy(gameObject);
+            playerController.kill();
         }
     }
 
     public void GainScore(int newScoreValue)
     {
-        scoreStart += newScoreValue;
+        scoreValue += newScoreValue;
         UpdateScore();
     }
 
     public void UpdateScore()
     {
-        scoreText.text = "Score: " + scoreStart;
+        scoreText.text = "Score: " + scoreValue;
     }
 
 }

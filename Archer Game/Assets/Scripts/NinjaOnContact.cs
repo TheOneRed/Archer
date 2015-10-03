@@ -1,13 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyByContact : MonoBehaviour {
+public class NinjaOnContact : MonoBehaviour {
 
     Animator ninjaDeath;
     public int lifeValue;
     public int AddScore;
-
-    private EnemyController enemyController;
+   
     private GameController gameController;
 
     void Start()
@@ -26,12 +25,14 @@ public class DestroyByContact : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        gameController.GainScore(AddScore);
-
         if (other.tag == "Player")
         {
             gameController.LoseLife(lifeValue);
         }
         
+        if (other.tag == "Arrow")
+        {
+            gameController.GainScore(AddScore);
+        }
     }
 }

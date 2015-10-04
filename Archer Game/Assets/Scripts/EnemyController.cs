@@ -23,6 +23,7 @@ public class Boundary
 public class EnemyController : MonoBehaviour
 {
     // PUBLIC INSTANCE VARIABLES
+	Animator ninjaDeath;
     public Speed speed;
     public Move move;
     public Boundary boundary;

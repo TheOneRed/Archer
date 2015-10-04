@@ -1,10 +1,12 @@
 fileFormatVersion: 2
-guid: 0c7b15ade165e5b4eb4005224bafc42a
-timeCreated: 1443468810
+guid: 3692e2cb778b64742a962c4b29c35f15
+timeCreated: 1443911904
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: x_1_0
+    21300000: Archer Death_0
+    21300002: Archer Death_1
+    21300004: Archer Death_2
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -39,7 +41,7 @@ TextureImporter:
   rGBM: 0
   compressionQuality: 50
   allowsAlphaSplitting: 0
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -51,11 +53,31 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: x_1_0
+    - name: Archer Death_0
       rect:
         serializedVersion: 2
-        x: 40
-        y: 30
+        x: 42
+        y: 385
+        width: 70
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Archer Death_1
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 243
+        width: 75
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: Archer Death_2
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 101
         width: 70
         height: 70
       alignment: 0

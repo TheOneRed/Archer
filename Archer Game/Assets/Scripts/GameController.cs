@@ -21,6 +21,12 @@ public class GameController : MonoBehaviour {
         this.UpdateScore();
         this.UpdateLives();
         this.NinjaMaker();
+
+		GameObject playerControllerObject = GameObject.FindWithTag("Player");
+		if (playerControllerObject != null)
+		{
+			playerController = playerControllerObject.GetComponent<PlayerController>();
+		}
     }
 
     // Update is called once per frame

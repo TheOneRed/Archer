@@ -16,7 +16,10 @@ public class ArrowShot : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D other)
     {
-        Destroy(gameObject); //Remove itself
-      
+		if (other.tag == "ArrowCollect") 
+		{
+			Destroy (gameObject); //Remove itself
+		}
+		Destroy (gameObject); //Remove itself
     }
 }

@@ -1,12 +1,11 @@
 fileFormatVersion: 2
-guid: b75f8ba900d597b4b82e9b3e82b1ab3a
-timeCreated: 1443544211
+guid: f18269a5833fe9e44a7e2019896e04e4
+timeCreated: 1443926093
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
-    21300000: NinjaDeath_0
-    21300002: NinjaDeath_1
-    21300004: NinjaDeath_2
+    21300000: Ninja Death_0
+    21300002: Ninja Death_1
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
@@ -53,31 +52,21 @@ TextureImporter:
   buildTargetSettings: []
   spriteSheet:
     sprites:
-    - name: NinjaDeath_0
+    - name: Ninja Death_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 179
-        width: 90
+        x: 52
+        y: 390
+        width: 65
         height: 75
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
-    - name: NinjaDeath_1
+    - name: Ninja Death_1
       rect:
         serializedVersion: 2
-        x: 2
-        y: 87
-        width: 85
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-    - name: NinjaDeath_2
-      rect:
-        serializedVersion: 2
-        x: 2
-        y: 5
+        x: 47
+        y: 248
         width: 75
         height: 80
       alignment: 0

@@ -31,5 +31,6 @@ public class JewelOnContact : MonoBehaviour
             gameController.GainScore(AddScore);
             Destroy(gameObject);
         }
-    }
+
+	}
 }

@@ -27,15 +27,16 @@ public class EnemyController : MonoBehaviour
     public Speed speed;
     public Move move;
     public Boundary boundary;
+	AudioSource death; //http://opengameart.org/content/grunts-male-death-and-pain
     
     // PRIVATE INSTANCE VARIABLES
     private float _CurrentSpeed;
     private float _CurrentMove;
-    private GameController gameController;
 
     // Use this for initialization
     void Start()
     {
+		death = GetComponent<AudioSource>();
         this.Reset();
     }
 
@@ -71,7 +72,8 @@ public class EnemyController : MonoBehaviour
     {
         if (other.tag == "Arrow")
         {
-            this.Reset();   
+			death.Play (); //Sound that plays when ninja gets hit by arrow
+            this.Reset();  
         }
        
     }

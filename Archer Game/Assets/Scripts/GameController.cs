@@ -9,18 +9,31 @@ public class GameController : MonoBehaviour {
     public GameObject ninja;
     public Text scoreText;
     public Text livesText;
+	public Text gameOverText;
+	public Text finalScoreText;
+	public Text restartText;
     public int scoreValue = 0;
     public int livesValue = 5;
+	AudioSource youLose;
+	
 
     // Private Instances
     private PlayerController playerController;
+	private bool gameOver;
+	private bool restart;
 
     // Use this for initialization
     void Start()
     {
+		gameOver = false;
+		restart = false;
+		this.gameOverText.enabled = false;
+		this.finalScoreText.enabled = false;
+		this.restartText.enabled = false;
         this.UpdateScore();
         this.UpdateLives();
         this.NinjaMaker();
+		youLose = GetComponent<AudioSource> ();
 
 		GameObject playerControllerObject = GameObject.FindWithTag("Player");
 		if (playerControllerObject != null)
@@ -29,10 +42,16 @@ public class GameController : MonoBehaviour {
 		}
     }
 
-    // Update is called once per frame
+    // Pree "R" to reset
     void Update()
     {
-
+		if (restart) 
+		{
+			if(Input.GetKeyDown (KeyCode.R))
+			{
+				Application.LoadLevel (Application.loadedLevel);
+			}
+		}
     }
 
     // generate ninjas
@@ -44,31 +63,58 @@ public class GameController : MonoBehaviour {
         }
     }
 
+	// When player kills a ninja or collects a jewel
+	public void GainScore(int newScoreValue)
+	{
+		scoreValue += newScoreValue;
+		UpdateScore();
+	}
+
+	// Updates score value from above
+	public void UpdateScore()
+	{
+		scoreText.text = "Score: " + scoreValue;
+	}
+
+	// When player collides with a ninja
     public void LoseLife(int newLifeValue)
     {
         livesValue -= newLifeValue;
         UpdateLives();
     }
 
+	// Updates lives value from above
     public void UpdateLives()
     {
         livesText.text = "Lives: " + livesValue;
 
-        if (livesValue == 0)
-        {
-            playerController.kill();
-        }
+        if (livesValue == 0) 
+		{
+			playerController.kill (); // Reference to PlayerController to destroy player game object
+			youLose.Play (); //Sound when you hit zero lives value
+			this.GameOver ();
+		}
     }
 
-    public void GainScore(int newScoreValue)
-    {
-        scoreValue += newScoreValue;
-        UpdateScore();
-    }
+	// When lives value hits zero
+	private void GameOver()
+	{
+		gameOver = true;
+		this.scoreText.enabled = false;
+		this.livesText.enabled = false;
+		this.gameOverText.enabled = true;
+		this.finalScoreText.enabled = true;
+		this.finalScoreText.text = "Final Score: " + this.scoreValue;
 
-    public void UpdateScore()
-    {
-        scoreText.text = "Score: " + scoreValue;
-    }
+		//Meassge to press "R" to play again
+		if (gameOver)
+		{
+			this.restartText.enabled = true;
+			this.restartText.text = "Press 'R' to play again";
+			restart = true;
+		}
+	}
+
+    
 
 }

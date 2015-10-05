@@ -3,26 +3,25 @@ using System.Collections;
 
 public class NinjaOnContact : MonoBehaviour {
 
-    Animator ninjaDeath;
+    // Public Instances
     public int lifeValue;
     public int AddScore;
    
+	// Private Instances
     private GameController gameController;
 
     void Start()
     {
+		// Finding GameController game object to access methods in GameController script 
         GameObject gameControllerObject = GameObject.FindWithTag("GameController");
         if (gameControllerObject != null)
         {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
-
-        if (gameControllerObject == null)
-        {
-            Debug.Log("Cannot find 'GameController' script");
-        }
+		
     }
 
+	// Score/Lives update system when colliding
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "Player")

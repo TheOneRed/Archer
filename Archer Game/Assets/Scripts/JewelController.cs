@@ -16,8 +16,8 @@ public class JewelController : MonoBehaviour
     public float spawnWait;
     public float startWait;
     public float waveWait;
-    public int AddScore;
     public Range boundary;
+	AudioSource crack; // sound when arrow hits jewel
 
     //Private Instances
     private GameController gameController;
@@ -25,7 +25,7 @@ public class JewelController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+		crack = GetComponent<AudioSource> ();
         StartCoroutine(SpawnWaves());
     }
 
@@ -46,6 +46,11 @@ public class JewelController : MonoBehaviour
 
         }
     }
+
+	public void breakSound()
+	{
+		crack.Play(); //play audio clip
+	}
 
  
 }

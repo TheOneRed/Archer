@@ -20,6 +20,8 @@ public class ArrowShot : MonoBehaviour {
 		{
 			Destroy (gameObject); //Remove itself
 		}
-		Destroy (gameObject); //Remove itself
+
+        Destroy(gameObject);
+
     }
 }

@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour {
 	public Text restartText;
     public int scoreValue = 0;
     public int livesValue = 5;
-	AudioSource youLose;
+	AudioSource youLose; //Dive 3 Acrade SFX Free from Unity asset store
 	
 
     // Private Instances
@@ -35,7 +35,8 @@ public class GameController : MonoBehaviour {
         this.NinjaMaker();
 		youLose = GetComponent<AudioSource> ();
 
-		GameObject playerControllerObject = GameObject.FindWithTag("Player");
+        // Finding Player Controller game object to access methods in PlayerController script 
+        GameObject playerControllerObject = GameObject.FindWithTag("Player");
 		if (playerControllerObject != null)
 		{
 			playerController = playerControllerObject.GetComponent<PlayerController>();

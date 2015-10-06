@@ -17,7 +17,7 @@ public class JewelController : MonoBehaviour
     public float startWait;
     public float waveWait;
     public Range boundary;
-	AudioSource crack; // sound when arrow hits jewel
+	AudioSource crack; // empty Arcade SFX Free from unity asset store
 
     //Private Instances
     private GameController gameController;

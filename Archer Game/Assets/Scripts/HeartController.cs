@@ -29,7 +29,7 @@ public class HeartController : MonoBehaviour {
                 Instantiate(heart, spawnPosition, spawnRotation);
                 yield return new WaitForSeconds(spawnWait);
             }
-            yield return new WaitForSeconds(waveWait);
+            yield return new WaitForSeconds(waveWait); //wait time for next wave
 
 
         }

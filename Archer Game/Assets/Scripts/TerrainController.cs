@@ -18,13 +18,13 @@ public class TerrainController : MonoBehaviour {
         currentPosition.x -= speed;
         gameObject.GetComponent<Transform>().position = currentPosition;
 
-        if (currentPosition.x <= -17.9)
+        if (currentPosition.x <= -17.9) //when background hits a certian position on the x-axis..... 
         {
             this.Reset();
         }
     }
 
-    private void Reset()
+    private void Reset() //reset back to first position
     {
         Vector2 resetPosition = new Vector2(5.28f, 1.7f);
         gameObject.GetComponent<Transform>().position = resetPosition;

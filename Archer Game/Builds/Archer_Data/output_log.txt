@@ -1,0 +1,25 @@
+Initialize engine version: 5.2.0f3 (e7947df39b5c)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 960 (ID=0x1401)
+    Vendor:   NVIDIA
+    VRAM:     1969 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: F:\Archer\Archer Game\Builds\Archer_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading F:\Archer\Archer Game\Builds\Archer_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: F:\Archer\Archer Game\Builds\Archer_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading F:\Archer\Archer Game\Builds\Archer_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: F:\Archer\Archer Game\Builds\Archer_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading F:\Archer\Archer Game\Builds\Archer_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: F:\Archer\Archer Game\Builds\Archer_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading F:\Archer\Archer Game\Builds\Archer_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: F:\Archer\Archer Game\Builds\Archer_Data\Managed\System.Core.dll (this message is harmless)
+- Completed reload, in  0.115 seconds
+desktop: 2560x1080 60Hz; virtual: 2560x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+Platform assembly: F:\Archer\Archer Game\Builds\Archer_Data\Managed\System.dll (this message is harmless)
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 368c -> priority: 1 

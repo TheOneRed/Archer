@@ -15,27 +15,21 @@ public class PlayerController : MonoBehaviour {
     public Transform shotSpawn;
     public float fireRate;
     public Area moveArea; //boundary where player is restricted
-	AudioSource pickUp; //Sound when player collides with jewel
 
 
 	// Private Instances
     private float nextFire;
 
 
-    void Start()
-    {
-		pickUp = GetComponent<AudioSource>(); //Finds audio source
-	}
-
     void Update()
     {
-		if (Input.GetButton("Fire1") && Time.time > nextFire) //Left click to fire
+		if ((Input.GetButton("Fire1") || Input.GetKeyDown("space")) && Time.time > nextFire) //Left click to fire
         {
            
             nextFire = Time.time + fireRate;
             Instantiate(arrow, shotSpawn.position, shotSpawn.rotation); //as GameObject;
         }
-		
+
     }
 
     // Update is called once per frame
@@ -54,16 +48,6 @@ public class PlayerController : MonoBehaviour {
             );
 
     }
-
-	// For sound purposes
-	public void OnTriggerEnter2D (Collider2D other)
-	{
-		if (other.tag == "Jewel") 
-		{
-			pickUp.Play(); //play sound clip
-		}
-	}
-		
 
 
     public void kill()

@@ -10,7 +10,6 @@ public class JewelOnContact : MonoBehaviour
 
     //Private Instances
     private GameController gameController; //To reference GameController script
-	private JewelController jewelController; //To reference JewelController script
 
     void Start()
     {
@@ -20,13 +19,6 @@ public class JewelOnContact : MonoBehaviour
         {
             gameController = gameControllerObject.GetComponent<GameController>();
         }
-		
-		// Finding JewelController game object to access methods in JewelController script 
-		GameObject jewelControllerObject = GameObject.FindWithTag("JewelController");
-		if (jewelControllerObject != null)
-		{
-			jewelController = jewelControllerObject.GetComponent<JewelController>();
-		}
 
 
     }
@@ -36,13 +28,14 @@ public class JewelOnContact : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            gameController.pickUpJewel();
             gameController.GainScore(AddScore); //reference to GameController to gain point for collecting the jewel
             Destroy(gameObject);
         }
 
 		if (other.tag == "Arrow") 
 		{
-			jewelController.breakSound(); //reference to JewelController to play sound. If the audiosource were to be a component in Jewel can called, it would not play because gameobject gets destroyed
+			gameController.breakJewel(); //reference to gameController to play sound. 
 			gameController.GainScore(LoseScore); //reference to GameController to lose points for breaking the jewel
 			Destroy(gameObject);
 		}

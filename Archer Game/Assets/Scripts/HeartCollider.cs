@@ -10,7 +10,7 @@ public class HeartCollider : MonoBehaviour {
 
     //Private Instances
     private GameController gameController;
-
+   
     // Use this for initialization
     void Start()
     {
@@ -32,12 +32,14 @@ public class HeartCollider : MonoBehaviour {
     {
         if (other.tag == "Player")
         {
+            gameController.pickUpHeart();
             gameController.LoseLife(getHeart);
             Destroy(gameObject);
         }
 
         if (other.tag == "Arrow")
         {
+            gameController.breakHeart();
             gameController.GainScore(hitHeart);
             Destroy(gameObject);
         }

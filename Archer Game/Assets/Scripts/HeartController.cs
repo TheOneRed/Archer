@@ -11,6 +11,7 @@ public class HeartController : MonoBehaviour {
     public float waveWait;
     public Range boundary;
 
+
     // Use this for initialization
     void Start()
     {
@@ -31,10 +32,10 @@ public class HeartController : MonoBehaviour {
             }
             yield return new WaitForSeconds(waveWait); //wait time for next wave
 
+            
 
         }
     }
-
 
  
 }

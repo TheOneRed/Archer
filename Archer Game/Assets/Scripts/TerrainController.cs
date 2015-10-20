@@ -4,11 +4,12 @@ using System.Collections;
 public class TerrainController : MonoBehaviour {
 
     public float speed;
+   
 
 	// Use this for initialization
 	void Start () {
         this.Reset();
-	
+       
 	}
 	
 	// Update is called once per frame
@@ -29,4 +30,6 @@ public class TerrainController : MonoBehaviour {
         Vector2 resetPosition = new Vector2(5.28f, 1.7f);
         gameObject.GetComponent<Transform>().position = resetPosition;
     }
+
+    
 }

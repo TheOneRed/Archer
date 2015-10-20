@@ -14,18 +14,26 @@ public class GameController : MonoBehaviour {
 	public Text restartText;
     public int scoreValue = 0;
     public int livesValue = 5;
-	AudioSource youLose; //Dive 3 Acrade SFX Free from Unity asset store
 	
 
     // Private Instances
     private PlayerController playerController;
 	private bool gameOver;
 	private bool restart;
+    private AudioSource[] audioSources; // an array of AudioSources
+    private AudioSource theme, jewel, jewelBreak, heart, heartBreak, gameOverSound;
 
     // Use this for initialization
     void Start()
     {
-		gameOver = false;
+        this.audioSources = this.GetComponents<AudioSource>();
+        this.theme = this.audioSources[0];
+        this.jewel = this.audioSources[1];
+        this.jewelBreak = this.audioSources[2];
+        this.heart = this.audioSources[3];
+        this.heartBreak = this.audioSources[4];
+        this.gameOverSound = this.audioSources[5];
+        gameOver = false;
 		restart = false;
 		this.gameOverText.enabled = false;
 		this.finalScoreText.enabled = false;
@@ -33,7 +41,6 @@ public class GameController : MonoBehaviour {
         this.UpdateScore();
         this.UpdateLives();
         this.NinjaMaker();
-		youLose = GetComponent<AudioSource> ();
 
         // Finding Player Controller game object to access methods in PlayerController script 
         GameObject playerControllerObject = GameObject.FindWithTag("Player");
@@ -92,7 +99,7 @@ public class GameController : MonoBehaviour {
         if (livesValue == 0) 
 		{
 			playerController.kill (); // Reference to PlayerController to destroy player game object
-			youLose.Play (); //Sound when you hit zero lives value
+			this.gameOverSound.Play (); //Sound when you hit zero lives value
 			this.GameOver ();
 		}
     }
@@ -115,6 +122,34 @@ public class GameController : MonoBehaviour {
 			restart = true;
 		}
 	}
+
+    //SOUND METHODS
+
+    public void pickUpJewel()
+    {
+        this.jewel.Play();
+    }
+
+    public void breakJewel()
+    {
+        this.jewelBreak.Play();
+    }
+
+    public void pickUpHeart()
+    {
+        this.heart.Play();
+    }
+    
+    public void breakHeart()
+    {
+        this.heartBreak.Play();
+    }
+
+    public void youLose()
+    {
+        this.gameOverSound.Play();
+    }
+
 
     
 
